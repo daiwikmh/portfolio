@@ -71,7 +71,10 @@ const PROJECTS = [
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-black text-white font-mono">
+    <div
+      className="min-h-screen font-mono"
+      style={{ background: "var(--bg)", color: "var(--fg)" }}
+    >
       <div className="px-8 pt-10 pb-4 max-w-6xl mx-auto">
         <Link href="/" className="text-xs opacity-30 hover:opacity-60 transition-opacity tracking-widest uppercase">
           ← back
@@ -84,8 +87,12 @@ export default function ProjectsPage() {
         {PROJECTS.map((p) => (
           <div
             key={p.name}
-            className="relative group flex flex-col border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 overflow-hidden"
-            style={{ "--accent": p.accent } as React.CSSProperties}
+            className="relative group flex flex-col transition-all duration-300 overflow-hidden"
+            style={{
+              "--accent": p.accent,
+              border: "1px solid var(--border)",
+              background: "var(--surface)",
+            } as React.CSSProperties}
           >
             {/* top accent bar */}
             <div
@@ -124,7 +131,10 @@ export default function ProjectsPage() {
               <p className="text-xs opacity-60 leading-relaxed flex-1">{p.description}</p>
 
               {/* footer */}
-              <div className="flex flex-col gap-2 mt-auto pt-3 border-t border-white/8">
+              <div
+                className="flex flex-col gap-2 mt-auto pt-3"
+                style={{ borderTop: "1px solid var(--border)" }}
+              >
                 {p.award && (
                   <span
                     className="text-xs px-2 py-0.5 self-start"
@@ -139,7 +149,11 @@ export default function ProjectsPage() {
                 )}
                 <div className="flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (
-                    <span key={t} className="text-[10px] opacity-25 border border-white/10 px-1.5 py-0.5 tracking-wide">
+                    <span
+                      key={t}
+                      className="text-[10px] opacity-40 px-1.5 py-0.5 tracking-wide"
+                      style={{ border: "1px solid var(--border)" }}
+                    >
                       {t}
                     </span>
                   ))}

@@ -1,5 +1,5 @@
 import { createOpenRouter } from "@openrouter/ai-sdk-provider"
-import { streamText } from "ai"
+import { streamText, convertToModelMessages } from "ai"
 
 const openrouter = createOpenRouter({
   apiKey: process.env.OPENROUTER_API_KEY,
@@ -39,9 +39,9 @@ export async function POST(req: Request) {
   const { messages } = await req.json()
 
   const result = streamText({
-    model: openrouter("anthropic/claude-3.5-haiku"),
+    model: openrouter("nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"),
     system: SYSTEM_PROMPT,
-    messages,
+    messages: await convertToModelMessages(messages),
   })
 
   return result.toUIMessageStreamResponse()

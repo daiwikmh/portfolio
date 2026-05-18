@@ -34,8 +34,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(t!=='mono'&&t!=='midnight'&&t!=='light')t='light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`
+
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

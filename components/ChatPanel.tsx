@@ -3,15 +3,24 @@
 import { useChat } from "@ai-sdk/react"
 import { Dithering } from "@paper-design/shaders-react"
 import { useRef, useEffect, useState } from "react"
+import type { Theme } from "@/app/page"
 
 const SAMPLE_PROMPTS = [
-  "What kind of work does daiwik do?",
-  "What's his design background?",
+  "What does daiwik build?",
+  "Tell me about his projects",
   "Where has he worked?",
   "What are his skills?",
 ]
 
-export default function ChatPanel({ isDarkMode }: { isDarkMode: boolean }) {
+const MIDNIGHT_SHADER = { back: "#0a3a25", front: "#9ec591" }
+
+export default function ChatPanel({
+  theme,
+  embedded = false,
+}: {
+  theme: Theme
+  embedded?: boolean
+}) {
   const { messages, sendMessage, status } = useChat()
   const [input, setInput] = useState("")
   const bottomRef = useRef<HTMLDivElement>(null)
@@ -35,18 +44,23 @@ export default function ChatPanel({ isDarkMode }: { isDarkMode: boolean }) {
   }
 
   return (
-    <div className={`chat-panel ${isDarkMode ? "dark" : "light"}`}>
-      <Dithering
-        className="chat-bg"
-        colorBack={isDarkMode ? "hsl(0, 0%, 0%)" : "hsl(0, 0%, 95%)"}
-        colorFront={isDarkMode ? "hsl(291, 97%, 67%)" : "hsl(220, 100%, 70%)"}
-        shape="dots"
-        type="4x4"
-        pxSize={3}
-        scale={0.8}
-        speed={0.1}
-      />
-      <div className="chat-overlay" />
+    <div className={`chat-panel chat-panel--${theme}${embedded ? " chat-panel--embedded" : ""}`}>
+      {theme === "midnight" && (
+        <>
+          <Dithering
+            className="chat-bg"
+            colorBack={MIDNIGHT_SHADER.back}
+            colorFront={MIDNIGHT_SHADER.front}
+            shape="dots"
+            type="4x4"
+            pxSize={3}
+            scale={0.8}
+            speed={0.1}
+          />
+          <div className="chat-overlay" />
+          <div className="chat-grid grid-bg" />
+        </>
+      )}
 
       {isEmpty ? (
         <div className="chat-centered">
@@ -65,7 +79,7 @@ export default function ChatPanel({ isDarkMode }: { isDarkMode: boolean }) {
               placeholder="Ask me anything about daiwik..."
               disabled={isLoading}
               autoComplete="off"
-              autoFocus
+              autoFocus={!embedded}
             />
             <button className="chat-submit" type="submit" disabled={isLoading || !input.trim()}>
               send
