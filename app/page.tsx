@@ -4,18 +4,18 @@ import { useEffect, useState } from "react"
 import ProfilePanel from "@/components/ProfilePanel"
 import ProjectsGrid from "@/components/ProjectsGrid"
 
-export type Theme = "light" | "mono" | "midnight"
+export type Theme = "light" | "mono"
 
 export default function ResumePage() {
   const [theme, setTheme] = useState<Theme>("light")
 
   useEffect(() => {
     const stored = (typeof window !== "undefined" && localStorage.getItem("theme")) as Theme | null
-    if (stored === "mono" || stored === "midnight" || stored === "light") setTheme(stored)
+    if (stored === "mono" || stored === "light") setTheme(stored)
   }, [])
 
   function cycleTheme() {
-    const order: Theme[] = ["light", "mono", "midnight"]
+    const order: Theme[] = ["light", "mono"]
     const next = order[(order.indexOf(theme) + 1) % order.length]
     setTheme(next)
     document.documentElement.setAttribute("data-theme", next)

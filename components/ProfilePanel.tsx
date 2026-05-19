@@ -19,7 +19,6 @@ const COMPANIES = [
 const THEME_LABEL: Record<Theme, string> = {
   light: "Light",
   mono: "Mono",
-  midnight: "Midnight",
 }
 
 export default function ProfilePanel({
@@ -39,14 +38,14 @@ export default function ProfilePanel({
               className="w-14 h-14 rounded-full flex items-center justify-center overflow-hidden"
               style={{ background: "var(--surface-soft)", border: "1px solid var(--border)" }}
             >
-              <Image src="/daiwik.jpg" alt="Daiwik Maheshwari" width={56} height={56} className="object-cover w-full h-full" />
+              <Image src="https://gateway.irys.xyz/52JT53dYcq7gYha1FBFh1B98iQkaciw1Cojac887kLxK" alt="Daiwik Maheshwari" width={56} height={56} className="object-cover w-full h-full" />
             </div>
             <div className="flex flex-col">
               <span className="text-[10px] uppercase tracking-[0.2em] opacity-50">Portfolio</span>
               <span className="text-sm font-mono opacity-80">daiwik.cv</span>
             </div>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center flex-wrap">
             <a
               href="https://x.com/daiwik_mhi"
               target="_blank"
@@ -62,6 +61,22 @@ export default function ProfilePanel({
               className="chip chip-btn chip--filled"
             >
               Github ↗
+            </a>
+            <a
+              href="https://www.linkedin.com/in/daiwik-maheshwari-69a880247/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="chip chip-btn"
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=daiwikmahesh@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="chip chip-btn"
+            >
+              Email ↗
             </a>
             <button
               onClick={onToggleTheme}

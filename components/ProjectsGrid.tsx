@@ -10,6 +10,7 @@ type Project = {
   award?: string
   url?: string
   accent: string
+  image?: string
 }
 
 const PROJECTS: Project[] = [
@@ -20,6 +21,7 @@ const PROJECTS: Project[] = [
     award: "Winner — LI.FI Vibeathon",
     url: "https://brahma-five.vercel.app",
     accent: "#c7e9b0",
+    image: "https://gateway.irys.xyz/4j2fNFpdQXbqmRWjVcWJWrck2KNPfkZ1Co1gsGXFqT6n",
   },
   {
     name: "Moly",
@@ -27,6 +29,7 @@ const PROJECTS: Project[] = [
     category: "Agents",
     url: "https://moly-lido.vercel.app",
     accent: "#cdd9f5",
+    image: "https://gateway.irys.xyz/DShcHgfCxbz2Ksoj3xitALsPdLUzPJNStP5nsHx9kJ44",
   },
   {
     name: "OWL",
@@ -34,6 +37,7 @@ const PROJECTS: Project[] = [
     category: "Wallets",
     url: "https://owl-moonpay.vercel.app",
     accent: "#f5e6b8",
+    image: "https://gateway.irys.xyz/9KHt4bmYDxEEWXfp1AZR7tzSwnfVkB1JFhKSv2EehwRz",
   },
   {
     name: "Polo",
@@ -109,12 +113,33 @@ export default function ProjectsGrid() {
               className="aspect-[4/3] relative overflow-hidden flex items-center justify-center"
               style={{ background: p.accent }}
             >
-              <span
-                className="font-serif text-4xl opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-300"
-                style={{ color: "#1a1a1a" }}
-              >
-                {p.name.charAt(0)}
-              </span>
+              {p.image ? (
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              ) : (
+                <>
+                  <svg
+                    className="absolute inset-0 w-full h-full opacity-20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <pattern id={`grid-${p.name}`} width="18" height="18" patternUnits="userSpaceOnUse">
+                        <circle cx="1" cy="1" r="1" fill="#1a1a1a" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill={`url(#grid-${p.name})`} />
+                  </svg>
+                  <span
+                    className="relative z-10 font-mono font-bold uppercase tracking-[0.18em] text-lg group-hover:tracking-[0.28em] transition-all duration-300"
+                    style={{ color: "#1a1a1a" }}
+                  >
+                    {p.name}
+                  </span>
+                </>
+              )}
               {p.award && (
                 <span
                   className="absolute top-2 left-2 text-[9px] uppercase tracking-[0.15em] px-1.5 py-0.5 font-mono"
