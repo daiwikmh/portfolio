@@ -2,6 +2,8 @@
 
 import { useChat } from "@ai-sdk/react"
 import { useRef, useEffect, useState } from "react"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import type { Theme } from "@/app/page"
 
 const SAMPLE_PROMPTS = [
@@ -75,8 +77,34 @@ export default function ChatPanel({
                 <span className="chat-message__role">{m.role === "user" ? "you" : "daiwik.ai"}</span>
                 <div className="chat-message__content">
                   {m.parts.map((part, i) => {
-                    if (part.type === "text") return <p key={i}>{part.text}</p>
-                    return null
+                    if (part.type !== "text") return null
+                    if (m.role === "assistant") {
+                      return (
+                        <ReactMarkdown key={i} remarkPlugins={[remarkGfm]} components={{
+                          p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                          strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+                          ul: ({ children }) => <ul className="list-disc pl-4 mb-1 space-y-0.5">{children}</ul>,
+                          ol: ({ children }) => <ol className="list-decimal pl-4 mb-1 space-y-0.5">{children}</ol>,
+                          li: ({ children }) => <li>{children}</li>,
+                          a: ({ href, children }) => (
+                            <a href={href} target="_blank" rel="noopener noreferrer" className="underline opacity-70 hover:opacity-100">{children}</a>
+                          ),
+                          code: ({ children }) => (
+                            <code className="font-mono text-[0.85em] px-1 rounded" style={{ background: "var(--surface-soft)" }}>{children}</code>
+                          ),
+                          pre: ({ children }) => (
+                            <pre className="font-mono text-[0.82em] p-2 rounded overflow-x-auto mb-1" style={{ background: "var(--surface-soft)" }}>{children}</pre>
+                          ),
+                          h1: ({ children }) => <p className="font-semibold mb-0.5">{children}</p>,
+                          h2: ({ children }) => <p className="font-semibold mb-0.5">{children}</p>,
+                          h3: ({ children }) => <p className="font-medium mb-0.5">{children}</p>,
+                          hr: () => <hr className="my-1 opacity-20" />,
+                        }}>
+                          {part.text}
+                        </ReactMarkdown>
+                      )
+                    }
+                    return <p key={i}>{part.text}</p>
                   })}
                 </div>
               </div>
