@@ -6,9 +6,10 @@ import ChatModal from "@/components/ChatModal"
 import type { Theme } from "@/app/page"
 
 const TECH_STACK = [
-  { label: "Languages", value: "Rust, Solidity, Go, TypeScript, SQL (PostgreSQL)" },
-  { label: "Frameworks", value: "Anchor (Solana), Uniswap Hooks, Next.js, Node.js, Foundry" },
-  { label: "Specializations", value: "Autonomous AI Agents, DeFi Infrastructure" },
+  { label: "Languages", value: "Rust, Solidity, Go, TypeScript, SQL (PostgreSQL), Move" },
+  { label: "Frameworks", value: "Anchor (Solana), Uniswap V3/V4 Hooks, Foundry, Next.js, Node.js, React" },
+  { label: "Protocols", value: "Solana, Ethereum, Stellar, Polkadot Asset Hub" },
+  { label: "Specializations", value: "Autonomous AI Agents, DeFi Infrastructure, AMM Design, Cross-chain Ops, Agent-native Wallets" },
 ]
 
 const EXPERIENCE = [
