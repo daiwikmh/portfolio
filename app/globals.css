@@ -228,6 +228,7 @@
   flex-direction: column;
   gap: 0.25rem;
   max-width: 80%;
+  min-width: 0;
 }
 
 .chat-message--user {
@@ -248,6 +249,9 @@
 .chat-message__content {
   line-height: 1.5;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .chat-message--user .chat-message__content {
