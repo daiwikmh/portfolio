@@ -100,7 +100,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json()
 
   const result = streamText({
-    model: openrouter("google/gemini-2.0-flash-exp:free", {
+    model: openrouter("google/gemma-4-31b-it:free", {
       // keep reasoning internal, do not return it in the response
       extraBody: { reasoning: { exclude: true } },
     }),
