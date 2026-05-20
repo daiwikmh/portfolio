@@ -24,13 +24,13 @@ export default function ResumePage() {
 
   return (
     <div
-      className="h-screen overflow-hidden flex gap-3 p-3"
+      className="flex flex-col md:flex-row gap-2.5 sm:gap-3 p-2.5 sm:p-3 min-h-screen md:h-screen md:overflow-hidden overflow-y-auto"
       style={{ background: "var(--bg)", color: "var(--fg)" }}
     >
-      <div className="w-[40%] h-full min-h-0">
+      <div className="w-full md:w-[40%] md:h-full">
         <ProfilePanel theme={theme} onToggleTheme={cycleTheme} />
       </div>
-      <div className="w-[60%] h-full min-h-0">
+      <div className="w-full md:w-[60%] md:h-full">
         <ProjectsGrid />
       </div>
     </div>

@@ -73,7 +73,7 @@ export default function ProjectsGrid() {
     : PROJECTS.filter((p) => p.category === filter)
 
   return (
-    <div className="card h-full p-5 flex flex-col min-h-0">
+    <div className="card md:h-full p-4 sm:p-5 flex flex-col md:min-h-0">
       <div className="flex items-center justify-between mb-4 flex-shrink-0">
         <div className="flex items-baseline gap-3">
           <h2 className="text-lg font-semibold tracking-tight">Projects</h2>
@@ -101,7 +101,7 @@ export default function ProjectsGrid() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5 overflow-y-auto min-h-0 pr-1 pb-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 md:overflow-y-auto md:min-h-0 pr-1 pb-1">
         {visible.map((p) => (
           <Link
             key={p.name}
