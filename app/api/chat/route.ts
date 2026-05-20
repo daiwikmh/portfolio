@@ -100,10 +100,13 @@ export async function POST(req: Request) {
   const { messages } = await req.json()
 
   const result = streamText({
-    model: openrouter("nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"),
+    model: openrouter("nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free", {
+      // keep reasoning internal, do not return it in the response
+      extraBody: { reasoning: { exclude: true } },
+    }),
     system: SYSTEM_PROMPT,
     messages: await convertToModelMessages(messages),
   })
 
-  return result.toUIMessageStreamResponse()
+  return result.toUIMessageStreamResponse({ sendReasoning: false })
 }
