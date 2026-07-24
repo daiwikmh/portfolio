@@ -49,7 +49,7 @@ export default function Sidebar({
       </div>
 
       <h1 className="side-name font-serif">daiwik</h1>
-      <p className="side-role">ai agents · blockchain · finance</p>
+      <p className="side-role">working in ai/llms &amp; finance</p>
 
       <nav className="side-nav">
         {SECTIONS.map((s) => (

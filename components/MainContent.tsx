@@ -112,8 +112,7 @@ export default function MainContent() {
           <h2 className="section__title font-serif reveal">about</h2>
           <p className="lede reveal">
             i&apos;m an ai agents builder and technical project manager based in
-            bangalore and jaipur, india, working at the intersection of ai,
-            blockchain and finance.
+            bangalore and jaipur, india, working in ai/llms and finance.
           </p>
           <p className="lede reveal">
             mostly autonomous agents that talk to on-chain protocols directly —
