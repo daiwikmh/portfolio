@@ -32,10 +32,24 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   {
-    name: "brahma",
-    tagline: "autonomous cross-chain yield optimizer",
+    name: "neurus",
+    tagline: "portable, owned memory for ai agents",
     description:
-      "Watches USDC across chains 24/7, finds the best Aave V3 yield, and moves funds automatically via LI.FI bridges. Includes a Uniswap V3 LP Guardian that evacuates liquidity when risk thresholds are breached.",
+      "Memory that lives on Walrus, encrypted with Seal, and anchored on Sui — carried between Claude, Gemini and GPT instead of staying locked in one vendor's servers. Ships as a second brain, a terminal CLI agent, and an HTTP/MCP API for any agent to plug into.",
+    url: "https://www.neurus.xyz",
+  },
+  {
+    name: "patentos",
+    tagline: "prior art and novelty research, automated",
+    description:
+      "Searches Google Patents, arXiv, GitHub and company blogs, builds a knowledge graph from what it finds, and returns a novelty verdict with concrete ways to differentiate an idea — or an infringement lead list scoped to a patent's issuing jurisdiction.",
+    url: "https://patent-ose.vercel.app",
+  },
+  {
+    name: "brahma",
+    tagline: "autonomous defi operations suite",
+    description:
+      "A cross-chain USDC yielder that uses LI.FI bridges and Aave V3 for non-custodial, automated capital deployment across chains, plus an LP Guardian strategy that continuously monitors Uniswap V3 positions and evacuates liquidity into safer assets when on-chain risk thresholds are breached.",
     award: "winner — li.fi vibeathon",
     url: "https://brahma-five.vercel.app",
   },
@@ -50,8 +64,15 @@ const PROJECTS = [
     name: "owl",
     tagline: "multi-agent coordination for the open wallet standard",
     description:
-      "Extends MoonPay's OWS from a single-agent wallet into infrastructure where multiple AI agents coordinate around shared wallets. Keys never leave the host.",
+      "Multi-agent coordination infrastructure built on the Open Wallet Standard, delivered as a CLI tool that lets multiple autonomous agents safely share terminal wallets. An agent-native interface and secure key-management layer keep private keys on the host while supporting complex multi-agent execution workflows.",
     url: "https://owl-moonpay.vercel.app",
+  },
+  {
+    name: "nyx",
+    tagline: "on-chain central limit order book on polkadot",
+    description:
+      "A fully on-chain CLOB using PolkaVM RISC-V execution and a native Rust matching engine for deterministic, gas-efficient order matching, with Solidity interfaces bridging into the low-level matching logic deployed on Polkadot Asset Hub.",
+    url: "https://nyx-trade.vercel.app",
   },
   {
     name: "polo",
@@ -90,8 +111,9 @@ export default function MainContent() {
         <section id="about" className="section">
           <h2 className="section__title font-serif reveal">about</h2>
           <p className="lede reveal">
-            i&apos;m a blockchain developer based in jaipur, india, building at the
-            intersection of defi and ai.
+            i&apos;m an ai agents builder and technical project manager based in
+            bangalore and jaipur, india, working at the intersection of ai,
+            blockchain and finance.
           </p>
           <p className="lede reveal">
             mostly autonomous agents that talk to on-chain protocols directly —
