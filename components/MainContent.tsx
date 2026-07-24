@@ -111,13 +111,13 @@ export default function MainContent() {
         <section id="about" className="section">
           <h2 className="section__title font-serif reveal">about</h2>
           <p className="lede reveal">
-            i&apos;m an ai agents builder and technical project manager based in
-            bangalore and jaipur, india, working in ai/llms and finance.
+            i&apos;m working in ai/llms &amp; finance, based in bangalore and
+            jaipur, india.
           </p>
           <p className="lede reveal">
-            mostly autonomous agents that talk to on-chain protocols directly —
-            yield optimization, liquidity management, cross-chain ops and
-            agent-native wallet infrastructure.
+            working on longer contexts, retrieval and telemetry for autonomous
+            agents with guardrails — liquidity management, cross-chain ops
+            and agent-native wallet infrastructure.
           </p>
           <div className="tag-row reveal">
             {FOCUS.map((f) => (
@@ -182,6 +182,23 @@ export default function MainContent() {
               </div>
             )
           })}
+        </section>
+
+        <section id="github" className="section">
+          <h2 className="section__title font-serif reveal">github</h2>
+          <a
+            href="https://github.com/daiwikmh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block reveal"
+          >
+            <img
+              src="https://ghchart.rshah.org/2f6fed/daiwikmh"
+              alt="daiwikmh's GitHub contribution graph"
+              className="w-full h-auto rounded-lg"
+              style={{ border: "1px solid var(--border)" }}
+            />
+          </a>
         </section>
       </div>
     </main>

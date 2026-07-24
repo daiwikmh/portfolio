@@ -116,6 +116,18 @@
   }
 }
 
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 1.5rem 1.25rem 1rem;
+  }
+  .main {
+    padding: 0 1.25rem 4rem;
+  }
+  .tl-head {
+    flex-wrap: wrap;
+  }
+}
+
 /* ---------- sidebar ---------- */
 .side-name {
   font-size: 1.6rem;
@@ -218,7 +230,7 @@
 }
 
 .section__title {
-  font-size: 2.3rem;
+  font-size: clamp(1.7rem, 5vw + 1rem, 2.3rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--fg);
