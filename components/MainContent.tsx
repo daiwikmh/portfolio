@@ -10,6 +10,16 @@ const FOCUS = [
 const EXPERIENCE = [
   {
     role: "full stack developer",
+    company: "engxlab",
+    period: "may 2026 – jul 2026",
+    meta: "remote · 3 months",
+    points: [
+      "Built core infrastructure and UI/UX for PathPulse, a blockchain-based settlement and payout platform enabling programmable payroll settlements, cross-border payouts, and digital asset conversion.",
+      "Worked on their Android application and implemented backend settlement workflows, secure APIs, and asset conversion pipelines for deterministic multi-asset payouts and enterprise-scale financial operations.",
+    ],
+  },
+  {
+    role: "full stack developer",
     company: "unrealai",
     period: "aug 2025 – nov 2025",
     meta: "remote · 4 months",
@@ -37,6 +47,14 @@ const PROJECTS = [
     description:
       "Memory that lives on Walrus, encrypted with Seal, and anchored on Sui — carried between Claude, Gemini and GPT instead of staying locked in one vendor's servers. Ships as a second brain, a terminal CLI agent, and an HTTP/MCP API for any agent to plug into.",
     url: "https://www.neurus.xyz",
+  },
+  {
+    name: "justdm",
+    tagline: "dm a reel, get the product, without leaving the chat",
+    description:
+      "You send a post to an Instagram account. An agent identifies what's in it, finds it on real storefronts, and checks out with a Prava one-time card that only works once, at that merchant, for that amount.",
+    award: "runner up — agentic commerce hack 2026",
+    url: "https://justdms.vercel.app/",
   },
   {
     name: "patentos",
@@ -118,6 +136,10 @@ export default function MainContent() {
             working on longer contexts, retrieval and telemetry for autonomous
             agents with guardrails — liquidity management, cross-chain ops
             and agent-native wallet infrastructure.
+          </p>
+          <p className="lede reveal">
+            i also build trading tools and frontend interfaces with next/react
+            and astro.
           </p>
           <div className="tag-row reveal">
             {FOCUS.map((f) => (

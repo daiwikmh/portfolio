@@ -4,6 +4,15 @@ import Link from "next/link"
 
 const PROJECTS = [
   {
+    name: "Neurus",
+    tagline: "Portable, owned memory for AI agents",
+    description:
+      "Memory that lives on Walrus, encrypted with Seal, and anchored on Sui — carried between Claude, Gemini and GPT instead of staying locked in one vendor's servers. Ships as a second brain, a terminal CLI agent, and an HTTP/MCP API for any agent to plug into.",
+    tags: ["Walrus", "Seal", "Sui", "MCP"],
+    url: "https://www.neurus.xyz",
+    accent: "hsl(95, 65%, 55%)",
+  },
+  {
     name: "Brahma",
     tagline: "Autonomous cross-chain yield optimizer",
     description:
@@ -28,6 +37,7 @@ const PROJECTS = [
     description:
       "Extends MoonPay's OWS from a single-agent wallet into infrastructure where multiple AI agents coordinate around shared wallets. Keys never leave the host.",
     tags: ["MoonPay", "OWS", "Multi-agent", "Wallets"],
+    award: "Winner — Synthesis Moonpay Track",
     url: "https://owl-moonpay.vercel.app",
     accent: "hsl(40, 100%, 60%)",
   },
@@ -66,6 +76,16 @@ const PROJECTS = [
     tags: ["Ethereum", "Aave", "Sentiment", "DeFi"],
     award: "Winner — ETHGlobal",
     accent: "hsl(15, 90%, 60%)",
+  },
+  {
+    name: "justdm",
+    tagline: "DM a reel. Get the product. Buy it without leaving the chat.",
+    description:
+      "An agent reads an Instagram DM, identifies the product, finds it on real storefronts, and checks out with a Prava one-time card that only works once, at that merchant, for that amount.",
+    tags: ["Instagram", "Prava", "Playwright", "Agentic Checkout"],
+    award: "Runner Up — Agentic Commerce Hack 2026",
+    url: "https://justdms.vercel.app",
+    accent: "hsl(185, 75%, 55%)",
   },
 ]
 
